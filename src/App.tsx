@@ -24,8 +24,9 @@ const App = () => {
   const loadEmployees = useCallback(
     async (search?: string) => {
       const response = await fetchEmployees(page, PAGE_SIZE, search);
-      const sortedEmployees = sortByExperience(response.data.pageItems);
-      setEmployees((prev) => (search ? sortedEmployees : [...new Set([...prev, ...sortedEmployees])]));
+      setEmployees((prev) =>
+        sortByExperience(search ? response.data.pageItems : [...new Set([...prev, ...response.data.pageItems])])
+      );
     },
     [page, sortByExperience]
   );

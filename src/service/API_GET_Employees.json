@@ -1728,7 +1728,7 @@
         },
         {
           "id": 40,
-          "name": "Harry Kali",
+          "name": "Harry Kali 40",
           "positions": [
             {
               "id": 40,
@@ -1741,7 +1741,7 @@
                   "toolLanguageResourceId": 40,
                   "displayOrder": 40,
                   "from": 2018,
-                  "to": 2024,
+                  "to": 2019,
                   "description": "New description here",
                   "images": [
                     {

@@ -12,18 +12,23 @@ const App = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [page, setPage] = useState(1);
 
+  // Sort employees by total years of experience
+  const sortByExperience = useCallback((employeeList: Employee[]) => {
+    return employeeList.sort((a, b) => {
+      const experienceA = calculateYearsOfExperience(a.positions);
+      const experienceB = calculateYearsOfExperience(b.positions);
+      return experienceB - experienceA; // Sort in descending order
+    });
+  }, []);
+
   const loadEmployees = useCallback(
     async (search?: string) => {
       const response = await fetchEmployees(page, PAGE_SIZE, search);
-
-      setEmployees((prev) => (search ? response.data.pageItems : [...new Set([...prev, ...response.data.pageItems])]));
+      const sortedEmployees = sortByExperience(response.data.pageItems);
+      setEmployees((prev) => (search ? sortedEmployees : [...new Set([...prev, ...sortedEmployees])]));
     },
-    [page]
+    [page, sortByExperience]
   );
-
-  useEffect(() => {
-    loadEmployees();
-  }, [loadEmployees, page]);
 
   const calculateYearsOfExperience = (positions: Position[]) => {
     return positions.reduce((total, position) => {
@@ -41,6 +46,10 @@ const App = () => {
   };
 
   const onSearch = (value: string) => loadEmployees(value);
+
+  useEffect(() => {
+    loadEmployees();
+  }, [loadEmployees, page]);
 
   return (
     <div className='employee-list'>

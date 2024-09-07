@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
+  max-width: 1720px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,110 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* General styles */
+
+.label {
+  font-size: 36px;
+}
+
+.input-search {
+  max-width: 30%;
+}
+
+.employee-card {
+  position: relative;
+  margin: 48px;
+  .ant-card-body {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.text-start {
+  text-align: start;
+}
+.mx-2 {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.my-2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.m-2 {
+  margin: 8px;
+}
+
+/* Responsive styles for mobile */
+
+@media (max-width: 1200px) {
+  .employee-card {
+    margin: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .employee-card {
+    margin: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .employee-card {
+    margin: 12px;
+  }
+  .input-search {
+    min-width: 145px;
+  }
+}
+/* Show delete button on hover */
+.employee-card:hover .delete-btn {
+  display: block;
+}
+
+.delete-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

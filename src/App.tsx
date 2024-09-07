@@ -55,7 +55,7 @@ const App = () => {
   return (
     <div className='employee-list'>
       <Typography.Text ellipsis={{ tooltip: true }} className='label m-2'>
-        List employess
+        List employees
       </Typography.Text>
       <div className='flex items-center gap-2'>
         <Typography.Text ellipsis={{ tooltip: true }}>Search name:</Typography.Text>
